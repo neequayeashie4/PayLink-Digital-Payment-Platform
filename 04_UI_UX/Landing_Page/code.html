@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PayLink | Enterprise Finance</title>
+<!-- Google Fonts: Space Grotesk for Headlines, Inter for Body -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e8e3da",
+                    "primary-container": "#ffcc00",
+                    "tertiary-fixed": "#d6e3ff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#ffb3ab",
+                    "tertiary-container": "#d6e3ff",
+                    "inverse-primary": "#f5f0e8",
+                    "surface-container": "#eee9e0",
+                    "surface-container-highest": "#e2ddd4",
+                    "primary-fixed-dim": "#e6b800",
+                    "on-primary-fixed-variant": "#1a1a1a",
+                    "outline-variant": "#d0cbc3",
+                    "on-secondary": "#1a1a1a",
+                    "on-primary-container": "#1a1a1a",
+                    "surface-dim": "#d6d1c9",
+                    "tertiary": "#0055ff",
+                    "on-primary": "#ffffff",
+                    "outline": "#1a1a1a",
+                    "on-secondary-container": "#1a1a1a",
+                    "primary": "#1a1a1a",
+                    "on-error-container": "#93000a",
+                    "error": "#cc0000",
+                    "surface-bright": "#faf7f2",
+                    "on-secondary-fixed-variant": "#1a1a1a",
+                    "on-surface": "#1a1a1a",
+                    "secondary-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#1a1a1a",
+                    "on-primary-fixed": "#1a1a1a",
+                    "tertiary-fixed-dim": "#a8c6ff",
+                    "on-tertiary-fixed": "#1a1a1a",
+                    "on-secondary-fixed": "#1a1a1a",
+                    "surface": "#f5f0e8",
+                    "background": "#f5f0e8",
+                    "surface-tint": "#1a1a1a",
+                    "primary-fixed": "#ffcc00",
+                    "inverse-on-surface": "#f5f0e8",
+                    "surface-container-low": "#f2ede5",
+                    "on-surface-variant": "#4a4a4a",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffdad6",
+                    "surface-variant": "#e8e3da",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#1a1a1a",
+                    "on-tertiary-container": "#1a1a1a",
+                    "on-error": "#ffffff",
+                    "secondary": "#e63b2e",
+                    "on-background": "#1a1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "display": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .neo-brutalist-border { border: 3px solid #1a1a1a; }
+        .neo-brutalist-shadow { shadow-[4px_4px_0px_0px_rgba(26,26,26,1)]; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; cursor: crosshair; }
+        h1, h2, h3, .font-headline { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-primary">
+<!-- TopNavBar (Shared Component Translation) -->
+<header class="bg-surface border-b-4 border-primary shadow-[4px_4px_0px_0px_rgba(26,26,26,1)] flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<a class="text-2xl font-headline font-black uppercase tracking-tighter text-primary dark:text-primary" href="#">PayLink</a>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-medium hover:bg-primary-container transition-colors duration-100 px-2 py-1" href="#features">Features</a>
+<a class="text-on-surface-variant font-medium hover:bg-primary-container transition-colors duration-100 px-2 py-1" href="#security">Security</a>
+<a class="text-on-surface-variant font-medium hover:bg-primary-container transition-colors duration-100 px-2 py-1" href="#pricing">Pricing</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:block text-primary font-bold px-4 py-2 hover:bg-primary-container transition-all active:translate-x-0.5 active:translate-y-0.5">Log In</button>
+<button class="bg-tertiary text-on-tertiary border-2 border-primary px-6 py-2 font-bold uppercase tracking-tight shadow-[3px_3px_0px_0px_rgba(26,26,26,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(26,26,26,1)] transition-all active:translate-x-0 active:translate-y-0 active:shadow-none">Get Started</button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-20 pb-32 px-6 border-b-4 border-primary">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+<div class="z-10">
+<span class="inline-block bg-secondary text-on-tertiary px-3 py-1 font-headline font-black uppercase text-xs mb-6 neo-brutalist-border">Enterprise Grade</span>
+<h1 class="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter text-primary mb-8">
+                        BANKING FOR THE MODERN <span class="text-tertiary italic">ENTERPRISE</span>.
+                    </h1>
+<p class="text-xl text-on-surface-variant max-w-lg mb-10 leading-relaxed border-l-4 border-primary-container pl-6">
+                        Unified financial infrastructure for high-growth teams. Move money globally, manage treasury, and issue cards—all through a single API.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-primary border-4 border-primary px-8 py-4 font-headline font-black text-xl uppercase shadow-[6px_6px_0px_0px_rgba(26,26,26,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[9px_9px_0px_0px_rgba(26,26,26,1)] transition-all active:translate-x-0 active:translate-y-0 active:shadow-none">
+                            Launch Console
+                        </button>
+<button class="bg-surface text-primary border-4 border-primary px-8 py-4 font-headline font-black text-xl uppercase shadow-[6px_6px_0px_0px_rgba(26,26,26,1)] hover:bg-surface-container-highest transition-all">
+                            Talk to Sales
+                        </button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-tertiary-container border-4 border-primary -rotate-2 -z-10"></div>
+<div class="neo-brutalist-border bg-surface-container-lowest overflow-hidden shadow-[12px_12px_0px_0px_rgba(26,26,26,1)] relative aspect-square md:aspect-auto h-full md:h-[600px]">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A sophisticated abstract digital composition featuring high-fidelity 3D geometric shapes in indigo and deep teal tones. The shapes are arranged in a dynamic, architectural layout against a clean white and light grey background, representing data flow and financial connectivity. The lighting is crisp and modern, emphasizing the sharp edges and premium neo-brutalist aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlzh2ziTTpaZGVCA7-wWk5cT7AakjQl3sIqwseh8uv9Y8L5Nku-cuM2mVDOTQpkpc0NtHXbgNyHvkW28aCEK8vNlNu1AKYTAf1oP39q5frAU0FvHK9Jg5PaRrbaWO4LwOhGnDXSNEVDwEX-T03qGUdcVpMGXi20G5HggDhOWqTbjtXQrwJOhExvE4E5QJn4Ph_rRtqlQgy5ntWBUCbVkWQgAtFB_cSWeT4EaedyQ1B2uIetEkqcwBe"/>
+<div class="absolute bottom-6 left-6 right-6 bg-primary text-on-primary p-6 neo-brutalist-border">
+<p class="font-headline font-bold text-sm tracking-widest uppercase mb-2">Live Network Statistics</p>
+<div class="flex justify-between items-end">
+<span class="text-4xl font-black">$4.2B+</span>
+<span class="text-primary-container font-bold text-xs">VOLUME PROCESSED Q3</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Strip -->
+<section class="bg-surface py-24 border-b-4 border-primary px-6" id="features">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-4xl font-black uppercase mb-16 inline-block bg-primary text-on-primary px-4 py-2">Core Infrastructure</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="bg-surface-container-lowest p-8 border-4 border-primary shadow-[8px_8px_0px_0px_rgba(26,26,26,1)] group hover:-translate-y-2 transition-transform">
+<div class="bg-tertiary-container w-16 h-16 border-4 border-primary flex items-center justify-center mb-8 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-4xl font-bold" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<h3 class="text-2xl font-black uppercase mb-4">Programmable Treasury</h3>
+<p class="text-on-surface-variant leading-relaxed">Automate your liquidity management with custom logic. Move funds between accounts, currencies, and entities instantly.</p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-surface-container-lowest p-8 border-4 border-primary shadow-[8px_8px_0px_0px_rgba(26,26,26,1)] group hover:-translate-y-2 transition-transform">
+<div class="bg-primary-container w-16 h-16 border-4 border-primary flex items-center justify-center mb-8 group-hover:bg-secondary transition-colors group-hover:text-on-secondary">
+<span class="material-symbols-outlined text-4xl font-bold" data-icon="terminal">terminal</span>
+</div>
+<h3 class="text-2xl font-black uppercase mb-4">Unified Ledger API</h3>
+<p class="text-on-surface-variant leading-relaxed">A single source of truth for all transactions. Our immutable double-entry ledger integrates with any existing ERP or ERP-lite software.</p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-surface-container-lowest p-8 border-4 border-primary shadow-[8px_8px_0px_0px_rgba(26,26,26,1)] group hover:-translate-y-2 transition-transform">
+<div class="bg-secondary-container w-16 h-16 border-4 border-primary flex items-center justify-center mb-8 group-hover:bg-tertiary transition-colors group-hover:text-on-tertiary">
+<span class="material-symbols-outlined text-4xl font-bold" data-icon="public">public</span>
+</div>
+<h3 class="text-2xl font-black uppercase mb-4">Global Settlement</h3>
+<p class="text-on-surface-variant leading-relaxed">Settle cross-border payments in T+0. Access 140+ currencies through a localized banking network without the SWIFT lag.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Section -->
+<section class="py-24 px-6 overflow-hidden" id="security">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+<div class="flex-1">
+<h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-10">RELIABILITY IS NOT <span class="bg-secondary text-on-secondary px-4">OPTIONAL</span>.</h2>
+<p class="text-xl mb-12 max-w-xl">We treat security as a first-class feature. PayLink is built on redundant infrastructure with hardware-level security modules for key management.</p>
+<div class="grid grid-cols-2 gap-6">
+<div class="flex items-center gap-4 p-4 border-2 border-primary bg-surface-container-high">
+<span class="material-symbols-outlined text-tertiary font-bold" data-icon="verified_user">verified_user</span>
+<span class="font-headline font-bold uppercase text-sm">SOC2 Type II Certified</span>
+</div>
+<div class="flex items-center gap-4 p-4 border-2 border-primary bg-surface-container-high">
+<span class="material-symbols-outlined text-tertiary font-bold" data-icon="security">security</span>
+<span class="font-headline font-bold uppercase text-sm">PCI DSS Level 1</span>
+</div>
+<div class="flex items-center gap-4 p-4 border-2 border-primary bg-surface-container-high">
+<span class="material-symbols-outlined text-tertiary font-bold" data-icon="gavel">gavel</span>
+<span class="font-headline font-bold uppercase text-sm">GDPR &amp; CCPA Compliant</span>
+</div>
+<div class="flex items-center gap-4 p-4 border-2 border-primary bg-surface-container-high">
+<span class="material-symbols-outlined text-tertiary font-bold" data-icon="monitoring">monitoring</span>
+<span class="font-headline font-bold uppercase text-sm">99.99% Uptime SLA</span>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full relative">
+<!-- Bento Grid for Trust visual -->
+<div class="grid grid-cols-2 grid-rows-2 gap-4 h-[400px]">
+<div class="col-span-2 bg-primary p-6 neo-brutalist-border flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="lock_open">lock_open</span>
+<div class="text-on-primary font-headline italic text-2xl font-black uppercase">Military Grade Encryption</div>
+</div>
+<div class="bg-tertiary p-6 neo-brutalist-border flex flex-col justify-center items-center">
+<span class="text-on-tertiary text-6xl font-black">256</span>
+<span class="text-on-tertiary font-headline font-bold uppercase text-xs tracking-widest mt-2">Bit AES</span>
+</div>
+<div class="bg-primary-container p-6 neo-brutalist-border flex flex-col justify-center items-center">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="fingerprint">fingerprint</span>
+<span class="text-primary font-headline font-bold uppercase text-xs tracking-widest mt-2">Multi-Factor</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section (Simple Table View) -->
+<section class="bg-primary text-on-primary py-24 px-6" id="pricing">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<h2 class="text-5xl font-black uppercase mb-4">Transparant Pricing.</h2>
+<p class="text-on-primary/70 text-lg">No hidden fees. No complex contracts. Scale with your volume.</p>
+</div>
+<div class="bg-on-primary text-primary px-8 py-4 font-headline font-black text-2xl uppercase italic border-4 border-primary-container">
+                        Start for $0/mo
+                    </div>
+</div>
+<div class="grid md:grid-cols-2 gap-12 border-t-4 border-on-primary pt-12">
+<div class="flex flex-col gap-8">
+<div class="group">
+<h3 class="text-2xl font-black uppercase text-primary-container mb-2 group-hover:translate-x-2 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span> Pay-As-You-Go
+                            </h3>
+<p class="text-on-primary/80 max-w-md">0.2% + $0.30 per successful local transaction. Ideal for startups and high-frequency, low-margin business models.</p>
+</div>
+<div class="group">
+<h3 class="text-2xl font-black uppercase text-primary-container mb-2 group-hover:translate-x-2 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="cloud">cloud</span> Enterprise Custom
+                            </h3>
+<p class="text-on-primary/80 max-w-md">Volume-based discounts, white-glove onboarding, and dedicated account management for $10M+ annual GMV.</p>
+</div>
+</div>
+<div class="bg-surface p-8 neo-brutalist-border shadow-[12px_12px_0px_0px_#ffcc00] relative">
+<div class="text-primary">
+<p class="font-headline font-black text-xs uppercase tracking-widest mb-6 bg-tertiary-container inline-block px-2 py-1">Featured Testimonial</p>
+<p class="text-2xl font-medium leading-tight mb-8">"PayLink replaced three separate banking partners for us. The ledger API is the best we've seen in the market—period."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 neo-brutalist-border bg-tertiary flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up professional portrait of a tech CEO in a minimalist setting. Dramatic high-contrast lighting with deep shadows and sharp highlights, mirroring the neo-brutalist visual style. Background is a solid neutral color." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY8Vf6FCQqWkp4Wl1oKD_OCiT8X24ZdhYCTEpAg9ZXmHj6-YOzswCDRs4PyKp_V9oWbCoPqx6CJvrgojFpf4vl7h6AShaODrzQ2smBPSz_OGZTliaW0_bGvACSfQlDKxjOexNEpBQMrXoi14pol7TfN8buEvvsFy_rTaBIbxPRjOFqy9YDUUYnLtvhdoykdAYzll_5UAKonuod-aSEXzZiwJ4yWPJ2vJCeHU9D223AaO854ovrvMM0"/>
+</div>
+<div>
+<p class="font-headline font-black uppercase text-sm">Marcus V.</p>
+<p class="text-xs uppercase font-bold text-on-surface-variant">CTO, Velocity Stream</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component Translation) -->
+<footer class="w-full py-12 px-8 mt-auto flex flex-col md:flex-row justify-between items-center gap-8 bg-primary border-t-4 border-primary">
+<div class="flex flex-col gap-4">
+<span class="text-xl font-headline font-black text-on-primary uppercase italic tracking-tighter">PayLink</span>
+<p class="font-body text-sm text-on-primary/80 max-w-xs">© 2024 PayLink Enterprise. Form Follows Function.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<div class="flex flex-col gap-2">
+<span class="font-label uppercase font-bold text-xs text-primary-fixed">Product</span>
+<a class="text-on-primary/80 hover:text-primary-fixed transition-colors text-sm" href="#">Features</a>
+<a class="text-on-primary/80 hover:text-primary-fixed transition-colors text-sm" href="#">Integrations</a>
+<a class="text-on-primary/80 hover:text-primary-fixed transition-colors text-sm" href="#">Changelog</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label uppercase font-bold text-xs text-primary-fixed">Legal</span>
+<a class="text-on-primary/80 hover:text-primary-fixed transition-colors text-sm" href="#">Privacy Policy</a>
+<a class="text-on-primary/80 hover:text-primary-fixed transition-colors text-sm" href="#">Terms of Service</a>
+<a class="text-on-primary/80 hover:text-primary-fixed transition-colors text-sm" href="#">Compliance</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label uppercase font-bold text-xs text-primary-fixed">Social</span>
+<a class="text-on-primary/80 hover:text-primary-fixed transition-colors text-sm" href="#">Twitter / X</a>
+<a class="text-on-primary/80 hover:text-primary-fixed transition-colors text-sm" href="#">LinkedIn</a>
+<a class="text-on-primary/80 hover:text-primary-fixed transition-colors text-sm" href="#">GitHub</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 border-2 border-on-primary flex items-center justify-center hover:bg-primary-container hover:text-primary transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="language">language</span>
+</div>
+<select class="bg-transparent border-2 border-on-primary text-on-primary font-headline font-bold text-xs uppercase px-4 py-2 focus:ring-0 focus:border-primary-container">
+<option>EN-US</option>
+<option>EN-UK</option>
+<option>DE-DE</option>
+</select>
+</div>
+</footer>
+<!-- Interactive Layer: Cursor Effect -->
+<div class="fixed pointer-events-none w-8 h-8 border-2 border-primary z-[9999] opacity-0 transition-opacity duration-300 hidden md:block" id="custom-cursor"></div>
+<script>
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.opacity = '1';
+            cursor.style.left = e.clientX - 16 + 'px';
+            cursor.style.top = e.clientY - 16 + 'px';
+            
+            // Randomly rotate cursor for neo-brutalist jitter
+            const rot = (e.clientX + e.clientY) % 10 - 5;
+            cursor.style.transform = `rotate(${rot}deg)`;
+        });
+
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.width = '48px';
+                cursor.style.height = '48px';
+                cursor.style.backgroundColor = '#ffcc00';
+                cursor.style.mixBlendMode = 'difference';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.width = '32px';
+                cursor.style.height = '32px';
+                cursor.style.backgroundColor = 'transparent';
+                cursor.style.mixBlendMode = 'normal';
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body></html>

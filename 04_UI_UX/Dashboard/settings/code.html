@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings | PayLink Institutional Finance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#ff7777",
+                    "surface-container-high": "#eae7ee",
+                    "on-surface-variant": "#464651",
+                    "on-primary-fixed": "#080b60",
+                    "secondary-container": "#60f9bd",
+                    "tertiary-fixed": "#ffdad8",
+                    "surface-container-low": "#f5f2fa",
+                    "on-secondary-fixed-variant": "#005138",
+                    "surface-variant": "#e4e1e9",
+                    "secondary-fixed": "#63fcc0",
+                    "inverse-on-surface": "#f3eff7",
+                    "error": "#ba1a1a",
+                    "tertiary": "#4e000a",
+                    "primary": "#121666",
+                    "primary-container": "#2a2f7c",
+                    "on-error": "#ffffff",
+                    "background": "#fbf8ff",
+                    "on-background": "#1b1b20",
+                    "inverse-primary": "#bfc2ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#5157a5",
+                    "surface-dim": "#dcd9e0",
+                    "outline-variant": "#c7c5d3",
+                    "secondary-fixed-dim": "#3fdfa5",
+                    "on-secondary": "#ffffff",
+                    "outline": "#777682",
+                    "on-primary-fixed-variant": "#393e8b",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#410007",
+                    "on-primary-container": "#959bee",
+                    "surface-container-highest": "#e4e1e9",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb3b0",
+                    "on-surface": "#1b1b20",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#f0ecf4",
+                    "on-secondary-container": "#00714f",
+                    "inverse-surface": "#303035",
+                    "surface-bright": "#fbf8ff",
+                    "primary-fixed": "#e0e0ff",
+                    "on-tertiary-fixed-variant": "#92001b",
+                    "secondary": "#006c4b",
+                    "on-secondary-fixed": "#002114",
+                    "on-primary": "#ffffff",
+                    "surface": "#fbf8ff",
+                    "primary-fixed-dim": "#bfc2ff",
+                    "tertiary-container": "#770014"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "12px",
+                    "xl": "18px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "24": "24px",
+                    "80": "80px",
+                    "40": "40px",
+                    "8": "8px",
+                    "32": "32px",
+                    "64": "64px",
+                    "4": "4px",
+                    "16": "16px",
+                    "48": "48px",
+                    "12": "12px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "data-mono": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "title-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf8ff;
+            color: #1b1b20;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .custom-shadow-l2 {
+            box-shadow: 0px 4px 20px rgba(26, 26, 46, 0.05);
+        }
+        .custom-shadow-l3 {
+            box-shadow: 0px 8px 32px rgba(26, 26, 46, 0.12);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e4e1e9; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c7c5d3; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+<!-- Horizontal TopNavBar (Adapted from SCREEN_8) -->
+<header class="fixed top-0 left-0 w-full h-80 z-50 bg-surface/95 dark:bg-on-surface/95 backdrop-blur-md border-b border-surface-variant/50">
+<div class="max-w-[1440px] mx-auto h-full px-32 flex items-center justify-between">
+<!-- Logo & Branding -->
+<div class="flex items-center gap-48">
+<div class="flex flex-col">
+<h1 class="text-title-sm font-bold text-primary dark:text-primary-fixed leading-tight">PayLink</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Institutional</p>
+</div>
+<!-- Horizontal Navigation -->
+<nav class="hidden lg:flex items-center gap-4">
+<a class="px-12 py-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center gap-8" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-body-sm">Dashboard</span>
+</a>
+<a class="px-12 py-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center gap-8" href="#">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+<span class="text-body-sm">Wallet</span>
+</a>
+<a class="px-12 py-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center gap-8" href="#">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span class="text-body-sm">Send</span>
+</a>
+<a class="px-12 py-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center gap-8" href="#">
+<span class="material-symbols-outlined text-[20px]">call_received</span>
+<span class="text-body-sm">Receive</span>
+</a>
+<a class="px-12 py-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center gap-8" href="#">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span class="text-body-sm">Transactions</span>
+</a>
+<a class="px-12 py-8 rounded-lg bg-surface-container-low text-primary dark:text-primary-fixed font-bold flex items-center gap-8" href="#">
+<span class="material-symbols-outlined text-[20px] filled-icon">settings</span>
+<span class="text-body-sm">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Right Side Actions -->
+<div class="flex items-center gap-24">
+<!-- Search -->
+<div class="relative hidden xl:block w-64">
+<span class="material-symbols-outlined absolute left-12 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full bg-surface-container-lowest dark:bg-surface-container-low border border-surface-variant/30 rounded-full pl-40 pr-12 py-8 text-body-sm focus:ring-2 focus:ring-primary/10 transition-all" placeholder="Search settings..." type="text"/>
+<span class="absolute right-12 top-1/2 -translate-y-1/2 text-[10px] font-bold text-outline-variant bg-surface-container px-6 py-2 rounded">⌘K</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-12 ml-8 pl-24 border-l border-outline-variant/30 group relative cursor-pointer">
+<div class="text-right">
+<p class="text-body-sm font-semibold text-on-surface">Alex Rivera</p>
+<p class="text-label-caps text-on-surface-variant">Admin</p>
+</div>
+<img class="w-40 h-40 rounded-full border border-outline-variant/50 object-cover" data-alt="Alex Rivera Admin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKHkkG7d9COyVKCc5dA-BjIE7xBOo8EWlHwkZfZFnycdqOYg6r18bkd8yChjAMsul6529Sv8Tjg_TqumqDkEbJsjr8tvf-3TPm9kVipo76TAyvSi9Ow_L-p4fBxz7GXmu8U8XHCGM3mj3i4kCR5yI1RkN0C8PeUlkL2C2eP3Qea8AnyjUIcyL9RFa3aMztCHy_jz-Mm8bbmOU_ikHCB4BRqq9qpG8e19s6MCXei6a1Wc-hkkioVxI"/>
+<!-- Profile Dropdown Simulator -->
+<div class="absolute top-full right-0 mt-8 w-48 bg-surface border border-surface-variant/30 rounded-xl shadow-xl opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all z-50 p-8">
+<a class="flex items-center gap-12 p-12 hover:bg-surface-container-low rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+<span class="text-body-sm font-medium">Profile</span>
+</a>
+<a class="flex items-center gap-12 p-12 hover:bg-surface-container-low rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">help</span>
+<span class="text-body-sm font-medium">Help Center</span>
+</a>
+<div class="my-8 h-px bg-surface-variant/30"></div>
+<a class="flex items-center gap-12 p-12 hover:bg-error-container/10 text-error rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-body-sm font-medium">Log Out</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas - Centered & Full Width -->
+<main class="pt-80 pb-64 px-32 min-h-screen">
+<div class="max-w-6xl mx-auto pt-32">
+<!-- Header Section -->
+<div class="mb-48">
+<h2 class="text-display-lg font-display-lg text-primary mb-8">System Settings</h2>
+<p class="text-body-md text-on-surface-variant max-w-2xl">Manage your institutional profile, global notification preferences, security protocols, and developer API credentials.</p>
+</div>
+<!-- Bento Grid Layout for Settings -->
+<div class="grid grid-cols-12 gap-24">
+<!-- Category: Appearance & Theme -->
+<section class="col-span-12 md:col-span-8 bg-surface-container-lowest rounded-xl p-32 custom-shadow-l2 border border-outline-variant/20">
+<div class="flex items-center gap-12 mb-24">
+<div class="p-8 bg-primary/5 rounded-lg text-primary">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<h3 class="text-title-sm font-title-sm">Appearance &amp; Interface</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+<div>
+<p class="text-body-md font-semibold mb-8">Theme Preference</p>
+<p class="text-body-sm text-on-surface-variant mb-16">Choose how PayLink looks to you. Select a default theme or let it match your system.</p>
+<div class="flex gap-12">
+<button class="flex-1 border-2 border-primary bg-primary/5 p-12 rounded-lg text-left transition-all">
+<span class="material-symbols-outlined text-primary mb-4">light_mode</span>
+<p class="text-body-sm font-bold text-primary">Light</p>
+</button>
+<button class="flex-1 border border-outline-variant p-12 rounded-lg text-left hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mb-4">dark_mode</span>
+<p class="text-body-sm font-semibold">Dark</p>
+</button>
+<button class="flex-1 border border-outline-variant p-12 rounded-lg text-left hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mb-4">settings_brightness</span>
+<p class="text-body-sm font-semibold">System</p>
+</button>
+</div>
+</div>
+<div class="space-y-24">
+<div>
+<div class="flex justify-between items-center mb-8">
+<label class="text-body-md font-semibold">Density</label>
+<span class="text-label-caps bg-secondary-container/20 text-on-secondary-container px-8 py-2 rounded-full">Pro Feature</span>
+</div>
+<select class="w-full rounded-lg border-outline-variant text-body-sm focus:border-primary focus:ring-primary/10 transition-all">
+<option>Standard (Recommended)</option>
+<option>Compact (Data Heavy)</option>
+<option>Comfortable</option>
+</select>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-body-sm font-semibold">Reduce Motion</p>
+<p class="text-label-caps text-on-surface-variant">Minimizes UI animations</p>
+</div>
+<button class="w-48 h-24 bg-outline-variant rounded-full relative transition-colors">
+<div class="absolute left-4 top-4 w-16 h-16 bg-white rounded-full transition-transform"></div>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Category: Privacy Status (Small Card) -->
+<section class="col-span-12 md:col-span-4 bg-primary text-on-primary rounded-xl p-32 custom-shadow-l2 flex flex-col justify-between overflow-hidden relative">
+<div class="relative z-10">
+<div class="flex items-center gap-12 mb-24">
+<span class="material-symbols-outlined">verified_user</span>
+<h3 class="text-title-sm font-title-sm">Privacy Vault</h3>
+</div>
+<p class="text-body-sm opacity-80 mb-24">Your institutional data is protected with AES-256 encryption. Last security audit passed: <span class="font-bold">2 days ago</span>.</p>
+<button class="bg-white text-primary px-16 py-8 rounded-lg text-body-sm font-bold hover:bg-opacity-90 transition-all">
+                        Review Privacy Policy
+                    </button>
+</div>
+<div class="absolute -bottom-16 -right-16 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+</section>
+<!-- Category: Notifications -->
+<section class="col-span-12 md:col-span-5 bg-surface-container-lowest rounded-xl p-32 custom-shadow-l2 border border-outline-variant/20">
+<div class="flex items-center gap-12 mb-24">
+<div class="p-8 bg-secondary/5 rounded-lg text-secondary">
+<span class="material-symbols-outlined">notifications_active</span>
+</div>
+<h3 class="text-title-sm font-title-sm">Notification Channels</h3>
+</div>
+<div class="space-y-16">
+<div class="flex items-center justify-between p-12 border-b border-outline-variant/10">
+<div>
+<p class="text-body-sm font-semibold">Transaction Alerts</p>
+<p class="text-label-caps text-on-surface-variant">Push notifications for all movements</p>
+</div>
+<button class="w-48 h-24 bg-primary rounded-full relative transition-colors">
+<div class="absolute right-4 top-4 w-16 h-16 bg-white rounded-full transition-transform"></div>
+</button>
+</div>
+<div class="flex items-center justify-between p-12 border-b border-outline-variant/10">
+<div>
+<p class="text-body-sm font-semibold">Security Emails</p>
+<p class="text-label-caps text-on-surface-variant">Required for login attempts</p>
+</div>
+<button class="w-48 h-24 bg-primary/20 rounded-full relative transition-colors cursor-not-allowed">
+<div class="absolute right-4 top-4 w-16 h-16 bg-primary rounded-full transition-transform"></div>
+</button>
+</div>
+<div class="flex items-center justify-between p-12">
+<div>
+<p class="text-body-sm font-semibold">Weekly Report</p>
+<p class="text-label-caps text-on-surface-variant">Consolidated financial overview</p>
+</div>
+<button class="w-48 h-24 bg-outline-variant rounded-full relative transition-colors">
+<div class="absolute left-4 top-4 w-16 h-16 bg-white rounded-full transition-transform"></div>
+</button>
+</div>
+</div>
+<button class="w-full mt-24 border border-outline-variant py-12 rounded-lg text-body-sm font-semibold hover:bg-surface-container-low transition-all">
+                    Advanced Routing Rules
+                </button>
+</section>
+<!-- Category: API Keys & Developers -->
+<section class="col-span-12 md:col-span-7 bg-surface-container-lowest rounded-xl p-32 custom-shadow-l2 border border-outline-variant/20">
+<div class="flex justify-between items-center mb-24">
+<div class="flex items-center gap-12">
+<div class="p-8 bg-tertiary-container/10 rounded-lg text-tertiary-container">
+<span class="material-symbols-outlined">code</span>
+</div>
+<h3 class="text-title-sm font-title-sm">Developer Access</h3>
+</div>
+<button class="text-primary text-body-sm font-bold flex items-center gap-4 hover:underline">
+<span class="material-symbols-outlined text-sm">open_in_new</span> Documentation
+                    </button>
+</div>
+<div class="bg-surface-container-low rounded-lg p-16 mb-24">
+<div class="flex justify-between items-center mb-8">
+<span class="text-label-caps font-bold text-on-surface-variant">LIVE_API_KEY</span>
+<span class="text-label-caps text-secondary font-bold flex items-center gap-4">
+<span class="w-8 h-8 bg-secondary rounded-full"></span> Active
+                        </span>
+</div>
+<div class="flex items-center gap-12">
+<code class="flex-grow text-data-mono bg-white p-12 rounded border border-outline-variant/30 text-sm">
+                            pk_live_51M7f*************************4z9
+                        </code>
+<button class="p-12 bg-white border border-outline-variant/30 rounded-lg text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-16">
+<div class="p-16 border border-outline-variant/30 rounded-lg">
+<p class="text-label-caps text-on-surface-variant mb-4 uppercase">Webhook Endpoints</p>
+<p class="text-body-md font-bold">12 Registered</p>
+</div>
+<div class="p-16 border border-outline-variant/30 rounded-lg">
+<p class="text-label-caps text-on-surface-variant mb-4 uppercase">Requests (24h)</p>
+<p class="text-body-md font-bold">42.8k <span class="text-secondary text-xs font-normal">↑ 12%</span></p>
+</div>
+</div>
+<div class="mt-24 flex gap-12">
+<button class="flex-grow bg-primary text-white py-12 rounded-lg text-body-sm font-bold hover:shadow-lg transition-all">
+                        Regenerate Live Keys
+                    </button>
+<button class="flex-grow border border-outline-variant py-12 rounded-lg text-body-sm font-semibold hover:bg-surface-container-low transition-all">
+                        Manage Webhooks
+                    </button>
+</div>
+</section>
+<!-- Footer / Save Actions -->
+<div class="col-span-12 flex justify-end gap-16 mt-16">
+<button class="px-32 py-16 text-body-sm font-semibold text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all">
+                    Reset to Defaults
+                </button>
+<button class="px-48 py-16 bg-primary text-white text-body-sm font-bold rounded-xl custom-shadow-l3 hover:-translate-y-1 transition-all" id="save-btn">
+                    Save Changes
+                </button>
+</div>
+</div>
+<!-- Danger Zone -->
+<section class="mt-80 p-32 bg-error-container/10 border border-error/20 rounded-xl">
+<div class="flex items-center gap-12 mb-16 text-error">
+<span class="material-symbols-outlined">report_problem</span>
+<h3 class="text-title-sm font-title-sm">Danger Zone</h3>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-24">
+<div>
+<p class="text-body-md font-bold">Delete Organization Account</p>
+<p class="text-body-sm text-on-surface-variant">Permanently remove all data, users, and historical transactions. This action cannot be undone.</p>
+</div>
+<button class="px-24 py-12 border border-error text-error rounded-lg text-body-sm font-bold hover:bg-error hover:text-white transition-all">
+                    Delete Account
+                </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Simple Feedback Toast -->
+<div class="fixed bottom-32 right-32 bg-on-surface text-surface px-24 py-16 rounded-xl custom-shadow-l3 translate-y-48 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-12 z-50" id="toast">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="text-body-sm font-medium">Settings saved successfully</span>
+</div>
+<script>
+    // Micro-interactions
+    const saveBtn = document.getElementById('save-btn');
+    const toast = document.getElementById('toast');
+
+    saveBtn.addEventListener('click', () => {
+        // Show toast
+        toast.classList.remove('translate-y-48', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+        
+        // Hide toast after 3s
+        setTimeout(() => {
+            toast.classList.add('translate-y-48', 'opacity-0');
+            toast.classList.remove('translate-y-0', 'opacity-100');
+        }, 3000);
+    });
+
+    // Toggle switches logic
+    const toggleButtons = document.querySelectorAll('button.w-48.h-24');
+    toggleButtons.forEach(btn => {
+        if (btn.classList.contains('cursor-not-allowed')) return;
+        
+        btn.addEventListener('click', () => {
+            const knob = btn.querySelector('div');
+            const isOff = btn.classList.contains('bg-outline-variant');
+            
+            if (isOff) {
+                btn.classList.replace('bg-outline-variant', 'bg-primary');
+                knob.classList.replace('left-4', 'right-4');
+            } else {
+                btn.classList.replace('bg-primary', 'bg-outline-variant');
+                knob.classList.replace('right-4', 'left-4');
+            }
+        });
+    });
+</script>
+</body></html>

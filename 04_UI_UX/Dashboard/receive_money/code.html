@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PayLink - Receive Money</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .qr-gradient {
+            background: linear-gradient(135deg, #121666 0%, #2a2f7c 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(234, 234, 240, 1);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fbf8ff;
+        }
+        /* Custom scrollbar for institutional feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e4e1e9; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c7c5d3; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#63fcc0",
+                        "on-tertiary-fixed": "#410007",
+                        "surface-container": "#f0ecf4",
+                        "primary-container": "#2a2f7c",
+                        "on-surface": "#1b1b20",
+                        "background": "#fbf8ff",
+                        "primary": "#121666",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#92001b",
+                        "surface-container-highest": "#e4e1e9",
+                        "outline-variant": "#c7c5d3",
+                        "on-secondary-fixed": "#002114",
+                        "primary-fixed-dim": "#bfc2ff",
+                        "tertiary-fixed": "#ffdad8",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#770014",
+                        "surface-bright": "#fbf8ff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#4e000a",
+                        "secondary-container": "#60f9bd",
+                        "on-tertiary-container": "#ff7777",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dcd9e0",
+                        "surface-container-high": "#eae7ee",
+                        "tertiary-fixed-dim": "#ffb3b0",
+                        "surface": "#fbf8ff",
+                        "secondary": "#006c4b",
+                        "surface-variant": "#e4e1e9",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#464651",
+                        "on-background": "#1b1b20",
+                        "on-primary-fixed-variant": "#393e8b",
+                        "inverse-on-surface": "#f3eff7",
+                        "on-primary-container": "#959bee",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f2fa",
+                        "surface-tint": "#5157a5",
+                        "secondary-fixed-dim": "#3fdfa5",
+                        "inverse-surface": "#303035",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#bfc2ff",
+                        "primary-fixed": "#e0e0ff",
+                        "on-secondary-container": "#00714f",
+                        "outline": "#777682",
+                        "on-secondary-fixed-variant": "#005138",
+                        "on-primary-fixed": "#080b60"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "4": "4px",
+                        "24": "24px",
+                        "80": "80px",
+                        "16": "16px",
+                        "48": "48px",
+                        "64": "64px",
+                        "12": "12px",
+                        "40": "40px",
+                        "32": "32px",
+                        "8": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "data-mono": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+<!-- Consolidated TopNavBar -->
+<header class="fixed top-0 left-0 w-full h-80 z-50 bg-surface/95 backdrop-blur-md border-b border-surface-variant/50">
+<div class="max-w-[1440px] mx-auto h-full px-32 flex items-center justify-between">
+<!-- Logo & Branding -->
+<div class="flex items-center gap-48">
+<div class="flex flex-col">
+<h1 class="text-title-sm font-bold text-primary leading-tight">PayLink</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Institutional</p>
+</div>
+<!-- Horizontal Navigation -->
+<nav class="hidden lg:flex items-center gap-8">
+<a class="px-16 py-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center gap-8" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-body-sm">Dashboard</span>
+</a>
+<a class="px-16 py-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center gap-8" href="#">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+<span class="text-body-sm">Wallet</span>
+</a>
+<a class="px-16 py-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center gap-8" href="#">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span class="text-body-sm">Send</span>
+</a>
+<a class="px-16 py-8 rounded-lg bg-surface-container-low text-primary font-bold flex items-center gap-8" href="#">
+<span class="material-symbols-outlined text-[20px] filled-icon">call_received</span>
+<span class="text-body-sm">Receive</span>
+</a>
+<a class="px-16 py-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center gap-8" href="#">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span class="text-body-sm">Transactions</span>
+</a>
+</nav>
+</div>
+<!-- Right Side Actions -->
+<div class="flex items-center gap-24">
+<!-- Search -->
+<div class="relative hidden xl:block w-64">
+<span class="material-symbols-outlined absolute left-12 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full bg-surface-container-lowest border border-surface-variant/30 rounded-full pl-40 pr-12 py-8 text-body-sm focus:ring-2 focus:ring-primary/10 transition-all" placeholder="Search..." type="text"/>
+<span class="absolute right-12 top-1/2 -translate-y-1/2 text-[10px] font-bold text-outline-variant bg-surface-container px-6 py-2 rounded">⌘K</span>
+</div>
+<!-- New Transaction CTA -->
+<button class="bg-primary text-on-primary py-8 px-16 rounded-lg font-bold text-body-sm flex items-center gap-8 hover:opacity-90 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="hidden sm:inline">New Transaction</span>
+</button>
+<div class="flex items-center gap-16">
+<button class="w-40 h-40 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-8 right-8 w-8 h-8 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<!-- User Profile Dropdown Simulator -->
+<div class="flex items-center gap-12 pl-12 border-l border-surface-variant cursor-pointer group relative">
+<div class="text-right hidden md:block">
+<p class="text-body-sm font-semibold text-on-surface">Alexander Vance</p>
+<p class="text-label-caps text-on-surface-variant">Tier 3 Institutional</p>
+</div>
+<div class="w-40 h-40 rounded-full overflow-hidden border border-surface-variant bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive in a sharp indigo suit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5dGxF-o_pnr4jYa1hR0vhzlPVDrkOIzKkGz72XXqYNOsTHBS5-SNdUxpC7Rg08w6_2a3siJbdlh3hALfk6pwq6jRU0tTK9Gup8hiR-zC6iASpHoAIlwg2nAWkwOO1WH0w656-O4-8iRufoUbISLzfHc_9lf-VMT08jaULXwRZr3mjOeaYF_YCl3J2Qb-FAnt6kxKX3uDVmcBazlRW68AycacXyeInU-8EnsXxehtm3NpuEPCbWlI"/>
+</div>
+<!-- Hidden Dropdown Menu -->
+<div class="absolute top-full right-0 mt-8 w-200 bg-surface border border-surface-variant/30 rounded-xl shadow-xl opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all z-50 p-8">
+<a class="flex items-center gap-12 p-12 hover:bg-surface-container-low rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+<span class="text-body-sm font-medium">Profile</span>
+</a>
+<a class="flex items-center gap-12 p-12 hover:bg-surface-container-low rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+<span class="text-body-sm font-medium">Settings</span>
+</a>
+<div class="my-8 h-px bg-surface-variant/30"></div>
+<a class="flex items-center gap-12 p-12 hover:bg-error-container/10 text-error rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-body-sm font-medium">Log Out</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-80 px-48 pb-64 min-h-screen">
+<div class="max-w-7xl mx-auto pt-32">
+<!-- Hero Grid Layout -->
+<div class="grid grid-cols-12 gap-32">
+<!-- Left Column: QR & Primary Actions (Bento Style) -->
+<div class="col-span-12 lg:col-span-5 space-y-32">
+<!-- QR Code Card -->
+<div class="bg-surface-container-lowest rounded-[18px] p-32 shadow-[0px_4px_20px_rgba(26,26,46,0.05)] text-center relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-bl-[100px] transition-transform group-hover:scale-110"></div>
+<p class="text-label-caps font-label-caps text-on-surface-variant mb-24 uppercase tracking-widest">Personal QR Code</p>
+<div class="inline-block p-16 bg-white rounded-xl border border-outline-variant mb-24 shadow-sm">
+<img class="w-200 h-200" data-alt="A high-resolution QR code optimized for institutional scanning." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxS3HCeWoZPELdlRJHHjjhEz1O0cKAQXdy0Vrsh2e1sl49zjq4RrenQyrrkEEm3_bOxlljAaMYT9W447-G3kEG4_o9O9qgK_UbN_YBJUc_1UWJtSAIKZd0cP9uuhsy63mTkOlJSv7YBhFzWsvXP3A2rJ1fQXbqnZpWInGK84tfwU9lwxUVKqRmqpr1BEGV3UqPkbIbk0eCZqBXK5Op9JYLpUU--BxiOjYHpJOsvffy8vF9YfmIqj8"/>
+</div>
+<div class="space-y-4">
+<h3 class="text-headline-md font-headline-md text-primary">@vance_institutional</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Scanning this will automatically fill your transfer details.</p>
+</div>
+<div class="flex gap-12 mt-32 justify-center">
+<button class="flex items-center gap-8 px-24 py-12 bg-primary text-white rounded-xl font-bold transition-transform hover:scale-[1.02]">
+<span class="material-symbols-outlined text-[20px]" data-icon="share">share</span>
+                                Share QR
+                            </button>
+<button class="flex items-center gap-8 px-24 py-12 border border-primary text-primary rounded-xl font-bold hover:bg-primary/5 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+                                Save Image
+                            </button>
+</div>
+</div>
+<!-- Request Payment Widget -->
+<div class="bg-surface-container-lowest rounded-[18px] p-32 shadow-[0px_4px_20px_rgba(26,26,46,0.05)] border border-primary/10">
+<div class="flex items-center gap-16 mb-24">
+<div class="p-12 bg-secondary-container rounded-full text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<div>
+<h4 class="text-title-sm font-title-sm text-on-surface">Request Payment</h4>
+<p class="text-body-sm text-on-surface-variant">Create a specific payment link</p>
+</div>
+</div>
+<div class="space-y-16">
+<div>
+<label class="text-label-caps text-on-surface-variant block mb-8">Amount (USD)</label>
+<div class="relative">
+<span class="absolute left-16 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">$</span>
+<input class="w-full pl-32 pr-16 py-12 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/10 focus:border-primary transition-all outline-none" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div>
+<label class="text-label-caps text-on-surface-variant block mb-8">Description (Optional)</label>
+<input class="w-full px-16 py-12 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/10 focus:border-primary transition-all outline-none" placeholder="Consulting Fees - Q3" type="text"/>
+</div>
+<button class="w-full py-16 bg-primary text-white rounded-xl font-bold hover:shadow-lg transition-all">
+                                Generate Link
+                            </button>
+</div>
+</div>
+</div>
+<!-- Right Column: Account Details & Wallets -->
+<div class="col-span-12 lg:col-span-7 space-y-32">
+<!-- Fiat Account Card -->
+<div class="bg-surface-container-lowest rounded-[18px] p-32 shadow-[0px_4px_20px_rgba(26,26,46,0.05)]">
+<div class="flex justify-between items-center mb-24">
+<h4 class="text-title-sm font-title-sm text-on-surface flex items-center gap-12">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance">account_balance</span>
+                                Institutional Bank Details
+                            </h4>
+<span class="px-12 py-4 bg-secondary-container/20 text-on-secondary-container text-label-caps rounded-full font-bold">Verified</span>
+</div>
+<div class="space-y-1">
+<!-- Detail Row -->
+<div class="group flex justify-between items-center py-16 border-b border-outline-variant hover:bg-surface-container-low/50 px-8 rounded transition-colors">
+<div>
+<p class="text-label-caps text-outline uppercase">Beneficiary Name</p>
+<p class="text-body-md font-bold text-on-surface">Alexander Vance Institutional Holdings</p>
+</div>
+<button class="p-8 text-outline hover:text-primary transition-colors" onclick="copyText('Alexander Vance Institutional Holdings')">
+<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<!-- Detail Row -->
+<div class="group flex justify-between items-center py-16 border-b border-outline-variant hover:bg-surface-container-low/50 px-8 rounded transition-colors">
+<div>
+<p class="text-label-caps text-outline uppercase">IBAN</p>
+<p class="text-data-mono font-data-mono text-on-surface">GB49 PYLK 6016 1331 9284 55</p>
+</div>
+<button class="p-8 text-outline hover:text-primary transition-colors" onclick="copyText('GB49 PYLK 6016 1331 9284 55')">
+<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<!-- Detail Row -->
+<div class="group flex justify-between items-center py-16 border-b border-outline-variant hover:bg-surface-container-low/50 px-8 rounded transition-colors">
+<div>
+<p class="text-label-caps text-outline uppercase">BIC / SWIFT</p>
+<p class="text-data-mono font-data-mono text-on-surface">PYLKGB2LXXX</p>
+</div>
+<button class="p-8 text-outline hover:text-primary transition-colors" onclick="copyText('PYLKGB2LXXX')">
+<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<!-- Detail Row -->
+<div class="group flex justify-between items-center py-16 hover:bg-surface-container-low/50 px-8 rounded transition-colors">
+<div>
+<p class="text-label-caps text-outline uppercase">Bank Name</p>
+<p class="text-body-md font-bold text-on-surface">PayLink Clearing House NA</p>
+</div>
+<button class="p-8 text-outline hover:text-primary transition-colors" onclick="copyText('PayLink Clearing House NA')">
+<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Crypto Wallets Section -->
+<div class="space-y-16">
+<h4 class="text-label-caps text-on-surface-variant font-bold px-8 uppercase tracking-widest">Digital Asset Addresses</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<!-- Ethereum Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[18px] p-20 hover:border-primary/30 transition-all group">
+<div class="flex items-center gap-12 mb-16">
+<div class="w-32 h-32 bg-slate-100 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-slate-600" data-icon="currency_bitcoin">currency_yen</span>
+</div>
+<span class="font-bold text-body-md">Ethereum (ETH)</span>
+</div>
+<div class="flex items-center justify-between bg-surface p-12 rounded-lg">
+<code class="text-body-sm text-on-surface-variant truncate mr-8">0x71C...3921</code>
+<button class="text-primary hover:scale-110 transition-transform" onclick="copyText('0x71C...3921')">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+<!-- USDC Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[18px] p-20 hover:border-primary/30 transition-all group">
+<div class="flex items-center gap-12 mb-16">
+<div class="w-32 h-32 bg-blue-50 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-blue-600" data-icon="monetization_on">monetization_on</span>
+</div>
+<span class="font-bold text-body-md">USD Coin (USDC)</span>
+</div>
+<div class="flex items-center justify-between bg-surface p-12 rounded-lg">
+<code class="text-body-sm text-on-surface-variant truncate mr-8">0x71C...3921</code>
+<button class="text-primary hover:scale-110 transition-transform" onclick="copyText('0x71C...3921')">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Security Notice -->
+<div class="bg-primary-container/10 border border-primary-container/20 rounded-xl p-24 flex gap-16">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<div>
+<p class="text-body-sm text-primary font-bold">Security Awareness</p>
+<p class="text-body-sm text-on-surface-variant mt-4">Only share these details with trusted parties. All institutional transfers above $50k require secondary multi-sig approval. Verification may take up to 2 hours for blockchain assets.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Success Toast -->
+<div class="fixed bottom-32 left-1/2 -translate-x-1/2 px-24 py-12 bg-inverse-surface text-inverse-on-surface rounded-full text-body-sm font-bold opacity-0 transition-opacity flex items-center gap-8 shadow-xl pointer-events-none z-[100]" id="copy-toast">
+<span class="material-symbols-outlined text-[20px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        Copied to clipboard
+    </div>
+<script>
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('copy-toast');
+                toast.classList.remove('opacity-0');
+                toast.classList.add('opacity-100');
+                
+                setTimeout(() => {
+                    toast.classList.remove('opacity-100');
+                    toast.classList.add('opacity-0');
+                }, 2000);
+            });
+        }
+
+        // Search shortcut micro-interaction
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                const searchInput = document.querySelector('input[placeholder="Search..."]');
+                if (searchInput) searchInput.focus();
+            }
+        });
+    </script>
+</body></html>
